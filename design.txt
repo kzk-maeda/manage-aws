@@ -1,0 +1,41 @@
+・IAM
+　Policyのでタッチ ok
+
+・EC2
+　インスタンスの削除 ok
+　LBの削除 ok
+　SGの削除 ok
+　EIPの解放 ok
+  キーペアの削除 ok
+
+・RDS
+　インスタンスの削除 ok
+
+・VPC
+　サブネットの削除 ok
+　VPCの削除（付随リソース含む）
+
+
+関数設計
+def delete_ec2_resources
+
+def detatch_iam_policy
+
+def delete_rds_instances
+
+def __main__
+
+クラス設計
+Session:インスタンスを関数に突っ込む
+
+        try:
+            responce = sg.delete()
+            print responce
+        except:
+            print "something went wrong with deleting security group {}".format(sg_id)
+
+                        try:
+                responce = vpc.delete()
+                print responce
+            except:
+                print "something went wrong with deleting VPC {} {}".format(vpc_id,vpc_cidr)
